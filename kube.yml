@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata:
+  name : webb-deployment
+  labels:
+    app : webb
+spec:
+  template:
+    metadata:
+      labels:
+        app : webb
+    spec:
+      containers:
+      - name : webb
+        image: mogiii/webb:latest
+        ports:
+        - containerPort : 8080
+  selector:
+    matchLabels:
+      app : webb
